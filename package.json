@@ -4,7 +4,6 @@
   "description": "Webapplikation zur Kontakaufnahme mit Hundebesitzern und Gassigehern im Modul Web-Framworks",
   "main": "server.js",
   "scripts": {
-    "client-install": "npm install --prefix client",
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
