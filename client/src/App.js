@@ -1,14 +1,10 @@
 import React from "react";
-import UsersList from "./components/UsersList";
+import MapPage from "./components/MapPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <UsersList />
-    </div>
-  );
+  return <MapPage />;
 }
 
 export default App;

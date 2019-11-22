@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Container, ListGroup, ListGroupItem, Button } from "reactstrap";
+import { Row, Col, Image } from "react-bootstrap";
 import axios from "axios";
 
 class UsersList extends Component {
@@ -28,16 +29,22 @@ class UsersList extends Component {
     const { users } = this.state;
     console.log(users);
     return (
-      <Container>
-        <ListGroup>
-          {users.map(({ name, wohnort }) => (
-            <ListGroupItem>
-              <p>{name}</p>
-              <p>{wohnort}</p>
-            </ListGroupItem>
-          ))}
-        </ListGroup>
-      </Container>
+      <ListGroup>
+        {users.map(({ name, wohnort, bild }) => (
+          <ListGroupItem>
+            <Row>
+              <Col xs={3} className="person-wrapper">
+                <Image src={bild} roundedCircle className="profile-pic" />
+              </Col>
+              <Col xs={9}>
+                <h5>{name}</h5>
+                <Image src="icons/location.png" />
+                <span>{wohnort}</span>
+              </Col>
+            </Row>
+          </ListGroupItem>
+        ))}
+      </ListGroup>
     );
   }
 }

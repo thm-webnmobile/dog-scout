@@ -4,6 +4,7 @@ const users = [
     name: "Eric S Kunze",
     alter: 24,
     wohnort: "Üdersdorf",
+    bild: "pics/person1.jpg",
     beschreibung:
       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
     kontakt: {
@@ -16,6 +17,7 @@ const users = [
     name: "Juliane M Sommer",
     alter: 37,
     wohnort: "Lindau",
+    bild: "pics/person2.jpg",
     beschreibung:
       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
     kontakt: {
@@ -27,7 +29,8 @@ const users = [
     id: 3,
     name: "Michael A Weisz",
     alter: 41,
-    wohnort: "Neunkirchen Innenstadt",
+    wohnort: "Neunkirchen",
+    bild: "pics/person4.jpg",
     beschreibung:
       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
     kontakt: {
@@ -40,6 +43,7 @@ const users = [
     name: "Sophia A König",
     alter: 33,
     wohnort: "Nersingen",
+    bild: "pics/person3.jpg",
     beschreibung:
       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
     kontakt: {
@@ -52,11 +56,25 @@ const users = [
     name: "Jens F Frey",
     alter: 56,
     wohnort: "Bunde",
+    bild: "pics/person5.jpg",
     beschreibung:
       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
     kontakt: {
       telefon: "123456789",
       email: "pmanolaroshn@mineralka1.cf"
+    }
+  },
+  {
+    id: 6,
+    name: "Michelle W Daecher",
+    alter: 21,
+    wohnort: "Birken-Honigsessen ",
+    bild: "pics/person6.jpg",
+    beschreibung:
+      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+    kontakt: {
+      telefon: "123456789",
+      email: "JuergenHerzog@einrot.com "
     }
   }
 ];
