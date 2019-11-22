@@ -76,6 +76,45 @@ const users = [
       telefon: "123456789",
       email: "JuergenHerzog@einrot.com "
     }
+  },
+  {
+    id: 7,
+    name: "Sara Wechsler",
+    alter: 39,
+    wohnort: "Rosenheim",
+    bild: "pics/person7.jpg",
+    beschreibung:
+      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+    kontakt: {
+      telefon: "123456789",
+      email: "JuergenHerzog@einrot.com "
+    }
+  },
+  {
+    id: 8,
+    name: "Dominik Grunwald",
+    alter: 35,
+    wohnort: "Hamburg",
+    bild: "pics/person8.jpg",
+    beschreibung:
+      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+    kontakt: {
+      telefon: "123456789",
+      email: "JuergenHerzog@einrot.com "
+    }
+  },
+  {
+    id: 9,
+    name: "Mandy Herrmann",
+    alter: 46,
+    wohnort: "Hoyershausen",
+    bild: "pics/person9.jpg",
+    beschreibung:
+      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+    kontakt: {
+      telefon: "123456789",
+      email: "JuergenHerzog@einrot.com "
+    }
   }
 ];
 

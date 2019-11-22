@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Container, ListGroup, ListGroupItem, Button } from "reactstrap";
 import { Row, Col, Image } from "react-bootstrap";
 import axios from "axios";
+import "./UsersList.css";
 
 class UsersList extends Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class UsersList extends Component {
     const { users } = this.state;
     console.log(users);
     return (
-      <ListGroup>
+      <ListGroup id="users-list-id">
         {users.map(({ name, wohnort, bild }) => (
           <ListGroupItem>
             <Row>
