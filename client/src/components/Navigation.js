@@ -18,7 +18,7 @@ class Navigation extends Component {
     return (
       <Router>
         <div>
-          <Navbar className="navbar-fixed d-flex justify-content-between" style={{ backgroundColor: '#bc986a' }}>
+          <Navbar className="navigation navbar-fixed d-flex justify-content-between" style={{ backgroundColor: '#b7a274' }}>
             <Navbar.Brand className="text-black" href="/">
               <img
                 alt="Dog Scout Logo"
@@ -31,9 +31,9 @@ class Navigation extends Component {
             </Navbar.Brand>
 
 
-            <Navbar.Brand href="/profilseite" className="nav-link" >
+            <Navbar.Brand href="/profilseite" className="nav-link text-black" >
               Mein Profil
-              <div class="image-cropper">
+              <div className="image-cropper">
                 <img style={{ margin: "0 auto", height: "auto", width: "100%" }}
                   alt="Profilbild"
                   src={profilbild}

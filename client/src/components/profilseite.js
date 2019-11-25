@@ -9,10 +9,10 @@ import {Form, FormGroup, FormControl} from 'react-bootstrap';
 class Profilseite extends Component {
   render() {
     return (
-      <div className="Startseite">
+      <div>
         <br />
         <Row>
-          <Col class="col" sm={{ offset: 1 }} class="col">
+          <Col className="col" sm={{ offset: 1 }} className="col">
             <h2>Mein Profil</h2>
             <img
               alt="Profilbild"
@@ -22,16 +22,22 @@ class Profilseite extends Component {
               className="d-block"
             />
           </Col>
-          <Col class="col" sm={{ offset: 1 }}>
+          <Col className="col" sm={{ offset: 1 }}>
             <Form>
               <Form.Check type="checkbox" name="Profilbeschreibung" id="profil-Hundebesitzer" label="Hundebesitzer" />
               <Form.Check type="checkbox" name="Profilbeschreibung" id="profil-Gassigeher" label="Gassigeher" />
+              <br/>
+              <br/>
               Name: Marie Mustermann
+              <br/>
+              <br/>
               Alter: 29
+              <br/>
+              <br/>
               <FormGroup>
                 <FormControl
                   style={{ height: '100px' }}
-                  componentClass="textarea"
+                  componentclass="textarea"
                   placeholder="Beschreibung"
                 />
                 <br />
@@ -39,11 +45,19 @@ class Profilseite extends Component {
               
             </Form>
           </Col>
-            <Col class="col" sm={{ offset: 1 }}>
+            <Col className="col" sm={{ offset: 1 }}>
               <h5>Bilder:</h5>
             </Col>
         </Row>
-      </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+
+        
+        </div>
 
         )
       }

@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import LoggedIn from './LoggedIn';
 import Register from "./Auth/Register";
 import Login from "./Auth/Login";
+import Button from 'react-bootstrap/Button';
+import "C:/Users/roari/Desktop/reacttest2/dog-scout/client/src/App.css";
 
 class Landing extends Component {
     render() {
@@ -10,19 +12,19 @@ class Landing extends Component {
             <Router>
                 <div style={{ height: "75vh" }} className="container valign-wrapper">
                     <div className="row">
-                        <div className="col s12 center-align">
-                            <h4>Willkommen bei <b>Dog Scout!</b></h4>
+                        <div className="col-centered col-xs-3">
+                            <h3>Willkommen bei <b>Dog Scout!</b></h3>
                             <p>Haben Sie schon ein Konto?</p>
                             <br />
-                            <div className="col s6">
-                                <Link to="/register"> Neuen Account erstellen! </Link>
-                            </div>
-                            <div className="col s6">
-                                <Link to="/login"> Anmelden! </Link>
-                            </div>
-                            <div className="col s6">
-                                <Link to="/content"> Schnell anmelden </Link>
-                            </div>
+                            <Button variant="dark" className="col s6 btn-block" href="/register">
+                                Neuen Account erstellen
+                            </Button>
+                            <Button variant="dark" className='col s6 btn-block' href='/login'>
+                                Anmelden
+                            </Button>
+                            <Button variant="dark" className='col s6 btn-block' href='/content'>
+                                [schnell anmelden]
+                            </Button>
                         </div>
                     </div>
 

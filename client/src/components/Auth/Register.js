@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
+import {Button, Alert} from 'react-bootstrap';
+
+import axios from 'axios';
 
 class Register extends Component {
     constructor() {
@@ -27,6 +29,10 @@ class Register extends Component {
             password2: this.state.password2
         };
         console.log(newUser);
+
+        axios.post('http://localhost:5000/api/users/register', newUser)
+        .then(res => console.log(res.data));
+        //window.location='/'; //zurück zur Startseite
     };
 
     render() {
@@ -34,7 +40,7 @@ class Register extends Component {
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col s8 offset-s2">
+                    <div className="col-centered ">
                         <Link to="/">
                             <i className="material-icons left">keyboard_backspace</i> Zurück
                         </Link>
@@ -92,16 +98,8 @@ class Register extends Component {
                             <br/>
                             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                                 <Button variant="outline-dark"
-                                    style={{
-                                        width: "150px",
-                                        borderRadius: "3px",
-                                        letterSpacing: "1.5px",
-                                        marginTop: "1rem"
-                                    }}
                                     type="submit"
-                                >
-                                    Sign up
-                </Button>
+                                >Registrieren</Button>
                             </div>
                         </form>
                     </div>

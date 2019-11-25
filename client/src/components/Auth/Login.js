@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
+import {Button, Alert} from 'react-bootstrap';
+import axios from 'axios';
 
 class Login extends Component {
     constructor() {
@@ -23,6 +24,11 @@ class Login extends Component {
             password: this.state.password
         };
         console.log(userData);
+
+        axios.post('http://localhost:5000/api/users/login', userData)
+        .then(res => console.log(res.data));
+
+        //window.location='/'; //zurück zur Startseite
     };
 
     render() {
@@ -30,7 +36,7 @@ class Login extends Component {
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col s8 offset-s2">
+                    <div className="col-centered">
                         <Link to="/" className="btn-flat waves-effect">
                             <i className="material-icons left">keyboard_backspace</i> Zurück
                         </Link>
@@ -50,6 +56,7 @@ class Login extends Component {
                                     id="email"
                                     type="email"
                                     placeholder="E-Mail"
+                                    required
                                 />
                             </div>
                             <br />
@@ -61,16 +68,12 @@ class Login extends Component {
                                     id="password"
                                     type="password"
                                     placeholder="Passwort"
+                                    required
                                 />
                             </div>
                             <br />
                             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                                <Button style={{
-                                    width: "150px",
-                                    borderRadius: "3px",
-                                    letterSpacing: "1.5px",
-                                    marginTop: "1rem"
-                                }} variant="outline-dark" type="submit"> Login </Button>
+                                <Button  variant="outline-dark" type="submit"> Login </Button>
                             </div>
                         </form>
                     </div>
