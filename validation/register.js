@@ -3,6 +3,8 @@ const isEmpty = require("is-empty");
 
 module.exports = function validateRegisterInput(data) {
     let errors = {};
+    let pwlength = 2;
+    const passwordRegex = /(?=.*[0-9])/;
 
     data.name = !isEmpty(data.name) ? data.name : "";
     data.email = !isEmpty(data.email) ? data.email : "";
@@ -20,18 +22,22 @@ module.exports = function validateRegisterInput(data) {
     }
 
     if (Validator.isEmpty(data.password)) {
-        errors.password="Passwort ist ein Pflichtfeld!";
+        errors.password = "Passwort ist ein Pflichtfeld!";
+    } else if (data.password.length < pwlength) {
+        errors.password = "Das Passwort muss ist zu kurz!";
+    } else if (!passwordRegex.test(data.password)) {
+        errors.password = "Das Passwort muss mindestens eine Nummer enthalten!";
     }
 
-    if (Validator.isEmpty(data.password2)){
-        errors.password2="Passwort-Bestätigung ist ein Pflichtfeld!";
+    if (Validator.isEmpty(data.password2)) {
+        errors.password2 = "Passwort-Bestätigung ist ein Pflichtfeld!";
     }
 
-    if(!Validator.equals(data.password, data.password2)){
-        errors.password2="Die Passwörter müssen übereinstimmen!";
+    if (!Validator.equals(data.password, data.password2)) {
+        errors.password2 = "Die Passwörter müssen übereinstimmen!";
     }
 
-    return{
+    return {
         errors,
         isValid: isEmpty(errors) //boolean: Ob es Fehler gibt
     };

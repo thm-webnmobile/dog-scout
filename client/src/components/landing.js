@@ -5,6 +5,7 @@ import Register from "./Auth/Register";
 import Login from "./Auth/Login";
 import Button from 'react-bootstrap/Button';
 import "C:/Users/roari/Desktop/reacttest2/dog-scout/client/src/App.css";
+import 'whatwg-fetch';
 
 class Landing extends Component {
     render() {
@@ -22,7 +23,7 @@ class Landing extends Component {
                             <Button variant="dark" className='col s6 btn-block' href='/login'>
                                 Anmelden
                             </Button>
-                            <Button variant="dark" className='col s6 btn-block' href='/content'>
+                            <Button variant="dark" className='col s6 btn-block' href='/home'>
                                 [schnell anmelden]
                             </Button>
                         </div>

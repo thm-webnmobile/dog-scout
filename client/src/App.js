@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Profiler } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navigation from './components/Navigation';
 import Landing from "./components/landing";
@@ -9,7 +9,7 @@ import Profilseite from "./components/profilseite";
 import LoggedIn from "./components/LoggedIn";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
-
+import Home from "./components/home";
 import { Alert} from 'react-bootstrap';
 
 
@@ -19,12 +19,13 @@ class App extends Component {
     return (
       <Router>
         <div className="Hintergrund App">
-          <Navigation />
-          <br/>
           <Route exact path="/" component={Landing} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/content" component={Content} />
+          <Route exact path="/profilseite" component={Profilseite} />
+          <Route exact path="/navigation" component={Navigation} />
+          <Route exact path="/home" component={Home} />
         </div>
       </Router>
     );

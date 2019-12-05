@@ -1,7 +1,10 @@
-import React, { Component } from "react";
+import React, { Component, Toast } from "react";
 import { Link } from "react-router-dom";
-import {Button, Alert} from 'react-bootstrap';
+import { Button, Alert } from 'react-bootstrap';
 import axios from 'axios';
+
+
+
 
 class Login extends Component {
     constructor() {
@@ -17,7 +20,12 @@ class Login extends Component {
         this.setState({ [e.target.id]: e.target.value });
     };
 
+    
+
     onSubmit = e => {
+
+      
+
         e.preventDefault();
         const userData = {
             email: this.state.email,
@@ -26,10 +34,11 @@ class Login extends Component {
         console.log(userData);
 
         axios.post('http://localhost:5000/api/users/login', userData)
-        .then(res => console.log(res.data));
+            .then(res => console.log(res.data));
 
         //window.location='/'; //zurück zur Startseite
     };
+
 
     render() {
         const { errors } = this.state;
@@ -73,7 +82,7 @@ class Login extends Component {
                             </div>
                             <br />
                             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                                <Button  variant="outline-dark" type="submit"> Login </Button>
+                                <Button variant="outline-dark" type="submit"> Login </Button>
                             </div>
                         </form>
                     </div>

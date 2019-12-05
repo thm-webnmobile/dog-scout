@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import {Button, Alert} from 'react-bootstrap';
+import { Button, Alert } from 'react-bootstrap';
+import 'whatwg-fetch';
 
 import axios from 'axios';
 
@@ -31,7 +32,7 @@ class Register extends Component {
         console.log(newUser);
 
         axios.post('http://localhost:5000/api/users/register', newUser)
-        .then(res => console.log(res.data));
+            .then(res => console.log(res.data));
         //window.location='/'; //zurück zur Startseite
     };
 
@@ -54,6 +55,7 @@ class Register extends Component {
                         <form noValidate onSubmit={this.onSubmit}>
                             <div className="input-field col s12">
                                 <input
+                                    name="name"
                                     onChange={this.onChange}
                                     value={this.state.name}
                                     error={errors.name}
@@ -62,7 +64,7 @@ class Register extends Component {
                                     placeholder="Name"
                                 />
                             </div>
-                            <br/>
+                            <br />
                             <div className="input-field col s12">
                                 <input
                                     onChange={this.onChange}
@@ -73,7 +75,7 @@ class Register extends Component {
                                     placeholder="E-Mail"
                                 />
                             </div>
-                            <br/>
+                            <br />
                             <div className="input-field col s12">
                                 <input
                                     onChange={this.onChange}
@@ -84,7 +86,7 @@ class Register extends Component {
                                     placeholder="Passwort"
                                 />
                             </div>
-                            <br/>
+                            <br />
                             <div className="input-field col s12">
                                 <input
                                     onChange={this.onChange}
@@ -95,7 +97,7 @@ class Register extends Component {
                                     placeholder="Passwort Bestätigung"
                                 />
                             </div>
-                            <br/>
+                            <br />
                             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                                 <Button variant="outline-dark"
                                     type="submit"

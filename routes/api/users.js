@@ -10,23 +10,23 @@ const validateLoginInput = require("../../validation/login");
 const User = require("../../models/User");
 
 
+
 router.post("/register", (req, res) => {
 
-    const {errors, isValid} = validateRegisterInput(req.body);
+    const { errors, isValid } = validateRegisterInput(req.body);
 
     if (!isValid) {
-        return res.status(400).json(errors);
+        return res.json({ success: false, errors });
     }
 
     User.findOne({ email: req.body.email }).then(user => {
         if (user) {
-            return res.status(400).json({ email: "Email existiert bereits!" });
+            return res.json({ success: false, email: "Email existiert bereits!" });
         } else {
             const newUser = new User({
                 name: req.body.name,
                 email: req.body.email,
                 password: req.body.password
-
             });
 
             bcrypt.genSalt(10, (err, salt) => {
@@ -43,12 +43,12 @@ router.post("/register", (req, res) => {
     });
 });
 
-router.post("/login", (req, res) => {
+router.post("/login", (req, res, response) => {
 
     const { errors, isValid } = validateLoginInput(req.body);
 
     if (!isValid) {
-        return res.status(400).json(errors);
+        return res.json({ success: false, errors });
     }
 
     const email = req.body.email;
@@ -56,21 +56,23 @@ router.post("/login", (req, res) => {
 
     User.findOne({ email }).then(user => {
         if (!user) {
-            return res.status(404).json({ emailnotfound: "Email wurde nicht gefunden!" });
+            return res.json({ success: false, emailnotfound: "Email wurde nicht gefunden!" });
         }
 
         bcrypt.compare(password, user.password).then(isMatch => {
             if (isMatch) {
+                
                 const payload = {
                     id: user.id,
                     name: user.name
                 };
+                
 
                 jwt.sign(
                     payload,
                     keys.secretOrKey,
                     {
-                        expiresIn: 31556926 
+                        expiresIn: 31556926
                     },
                     (err, token) => {
                         res.json({
@@ -79,13 +81,15 @@ router.post("/login", (req, res) => {
                         });
                     }
                 );
-            } else {
+            }
+             else {
                 return res
-                    .status(400)
-                    .json({ passwordincorrect: "Falsches Passwort!" });
+                    .json({ success: false, passwordincorrect: "Falsches Passwort!" });
             }
         });
     });
+
+
 });
 
-module.exports=router;
+module.exports = router;

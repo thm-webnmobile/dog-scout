@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-//import "C:/Users/roari/Desktop/reacttest2/dog-scout/client/src/App.css";
+import "C:/Users/roari/Desktop/reacttest2/dog-scout/client/src/App.css"; // Pfad muss noch zu relativem Pfad geändert werden!
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import logo from "./Hunde-Icon.png";
 import profilbild from "./profilbild-beispiel.jpg";
@@ -10,6 +10,7 @@ import { Navbar, Nav, Form, FormControl, ReactBootstrapStyle, Button } from 'rea
 import Content from './content';
 import Landing from './landing';
 import LoggedIn from './LoggedIn';
+import Home from './home';
 
 
 
@@ -19,7 +20,7 @@ class Navigation extends Component {
       <Router>
         <div>
           <Navbar className="navigation navbar-fixed d-flex justify-content-between" style={{ backgroundColor: '#b7a274' }}>
-            <Navbar.Brand className="text-black" href="/">
+            <Navbar.Brand className="text-black" href="/home">
               <img
                 alt="Dog Scout Logo"
                 src={logo}
@@ -44,15 +45,16 @@ class Navigation extends Component {
               </div>
 
             </Navbar.Brand>
+
+            <Nav.Item >
+              <Nav.Link href="/">Abmelden</Nav.Link>
+            </Nav.Item>
           </Navbar>
-          <Route path="/home" component={Content} />
-          <Route path="/profilseite" component={Profilseite} />
-          <Route path="/landing" component={Landing} />
-          <Route path="/loggedin" component={LoggedIn} />
+
         </div>
       </Router>
-        )
-      }
-    }
-    
+    )
+  }
+}
+
 export default Navigation;
