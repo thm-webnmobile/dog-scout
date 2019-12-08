@@ -1,12 +1,26 @@
 const express = require("express");
 const mongoose = require("mongoose");
+
+// mongoose.startSession('useCreateIndex', true); //wegen DeprecationWarning -> aber kam FM
 const bodyParser = require("body-parser");
-const users = require("./test_db/Users");
-
-const usersRouter = require("./routes/users");
-
 const app = express();
-app.use(express.json());
+const cors = require("cors"); //?
+const passport = require("passport");
+const users = require("./routes/api/users");
+const usersRouter = require("./routes/users"); //todo: these are only for dev purpose on the map, refactor on merge
+
+//The Promise object represents the eventual completion (or failure) of an asynchronous operation, and its resulting value
+mongoose.Promise = global.Promise;
+
+app.use(cors()); //??
+
+//Bosyparser Middleware
+app.use(
+  bodyParser.urlencoded({
+    extended: false
+  })
+);
+app.use(bodyParser.json());
 
 // DB Config
 const db = require("./config/keys").mongoURI;
@@ -15,14 +29,17 @@ const db = require("./config/keys").mongoURI;
 mongoose
   .connect(db, {
     useNewUrlParser: true,
-    useCreateIndex: true,
     useUnifiedTopology: true
   })
-  .then(() => console.log("MongoDB Connected..."))
-  .catch(err => console.log(err));
+  .then(() => console.log("MongoDB connected!"))
+  .catch(err => consolee.log(err));
 
-// Use Routes
-app.use("/users", usersRouter);
+app.use(passport.initialize());
+
+require("./config/passport")(passport);
+
+app.use("/users", usersRouter); //todo: these are only for dev purpose on the map, refactor on merge
+app.use("/api/users", users);
 
 const port = process.env.PORT || 5000;
 
