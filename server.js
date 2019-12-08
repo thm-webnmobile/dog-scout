@@ -1,13 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const users = require("./test_db/Users");
 
 const usersRouter = require("./routes/users");
 
 const app = express();
-
-//Bosyparser Middleware
-app.use(bodyParser.json());
+app.use(express.json());
 
 // DB Config
 const db = require("./config/keys").mongoURI;
@@ -16,6 +15,7 @@ const db = require("./config/keys").mongoURI;
 mongoose
   .connect(db, {
     useNewUrlParser: true,
+    useCreateIndex: true,
     useUnifiedTopology: true
   })
   .then(() => console.log("MongoDB Connected..."))
