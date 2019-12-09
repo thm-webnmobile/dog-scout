@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, ListGroup, ListGroupItem, Button } from "reactstrap";
+import { ListGroupItem } from "reactstrap";
 import { Row, Col, Image } from "react-bootstrap";
 
 class UserListItem extends Component {

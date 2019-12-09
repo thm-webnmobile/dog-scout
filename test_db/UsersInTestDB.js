@@ -1,3 +1,8 @@
+/**
+ * Das ist nur eine vorübergehende Datei, um Userdaten zu speichern. Sobald sich die User in der Datenbank befinden
+ * wird diese Datei gelöscht.
+ */
+
 const users = [
   {
     id: 1,

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
-import { Container, Row, Col, Image } from "react-bootstrap";
 import "./MapComponent.css";
 
 // Make the Marker Icon appear on map
@@ -35,7 +34,7 @@ class MapComponent extends Component {
             lng: position.coords.longitude
           },
           haveUsersLocation: true,
-          zoom: 8
+          zoom: 10
         });
       },
       () => {
@@ -58,6 +57,24 @@ class MapComponent extends Component {
     );
   }
 
+  giveInRangeLocations = (users, distance) => {
+    let inRangeLocations = [];
+    let locationA = new L.LatLng(
+      this.state.location.lat,
+      this.state.location.lng
+    );
+    let locationB;
+
+    console.log(users);
+
+    /* locationA.distanceTo(new L.LatLng(user.location.lat, user.location.lng)) <
+      distance
+        ? inRangeLocations.push(
+            new L.LatLng(user.location.lat, user.location.lng)
+          )
+        : "" */
+  };
+
   render() {
     const position = [this.state.location.lat, this.state.location.lng];
     return (
@@ -76,11 +93,10 @@ class MapComponent extends Component {
           ""
         )}
 
-        {this.props.users.map(user => (
-          <Marker position={[user.location.lat, user.location.lng]}>
-            <Popup>{user.name}</Popup>
-          </Marker>
-        ))}
+        {/* Marker der anderen User */
+        this.state.haveUsersLocation
+          ? this.giveInRangeLocations(this.props.users, 46000)
+          : ""}
       </Map>
     );
   }

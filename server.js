@@ -7,7 +7,7 @@ const app = express();
 const cors = require("cors"); //?
 const passport = require("passport");
 const users = require("./routes/api/users");
-const usersRouter = require("./routes/users"); //todo: these are only for dev purpose on the map, refactor on merge
+const usersTestRoute = require("./routes/usersTest"); //nhi: nur vorübergehend zu Testzwecken!
 
 //The Promise object represents the eventual completion (or failure) of an asynchronous operation, and its resulting value
 mongoose.Promise = global.Promise;
@@ -38,7 +38,7 @@ app.use(passport.initialize());
 
 require("./config/passport")(passport);
 
-app.use("/users", usersRouter); //todo: these are only for dev purpose on the map, refactor on merge
+app.use("/users", usersTestRoute); //nhi: nur vorübergehend zu Testzwecken!
 app.use("/api/users", users);
 
 const port = process.env.PORT || 5000;

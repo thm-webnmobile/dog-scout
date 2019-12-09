@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Container, ListGroup, ListGroupItem, Button } from "reactstrap";
-import { Row, Col, Image } from "react-bootstrap";
+import { ListGroup } from "reactstrap";
 import "./UsersList.css";
 import UserListItem from "./UserListItem";
 

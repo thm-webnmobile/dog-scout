@@ -1,3 +1,7 @@
+/**
+ *  NUR VERÜBERGEHEND ZU TESTZWECKEN
+ */
+
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;

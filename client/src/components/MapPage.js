@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Image } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import UsersList from "./UsersList";
 import MapComponent from "./MapComponent";
 import "./MapPage.css";
