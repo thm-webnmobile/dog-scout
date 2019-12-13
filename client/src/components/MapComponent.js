@@ -15,85 +15,24 @@ L.Icon.Default.mergeOptions({
 class MapComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      location: {
-        lat: 50.321799,
-        lng: 8.766996
-      },
-      haveUsersLocation: false,
-      zoom: 2
-    };
+    this.state = {};
   }
-
-  componentDidMount() {
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        this.setState({
-          location: {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          },
-          haveUsersLocation: true,
-          zoom: 10
-        });
-      },
-      () => {
-        // wenn keine erlaubnis zur standortabfrage gegeben wird, wird der standort anhand der ip-adresse ermittelt
-        console.log("location permission denied");
-        fetch("https://ipapi.co/json")
-          .then(res => res.json())
-          .then(location => {
-            console.log(location);
-            this.setState({
-              location: {
-                lat: location.latitude,
-                lng: location.longitude
-              },
-              haveUsersLocation: true,
-              zoom: 8
-            });
-          });
-      }
-    );
-  }
-
-  giveInRangeUsers = (users, distance) => {
-    let inRangeUsers = [];
-    let locationA = new L.LatLng(
-      this.state.location.lat,
-      this.state.location.lng
-    );
-
-    console.log("MapComponent Distance value: " + distance);
-    if (distance === "") {
-      distance = 45000;
-    }
-
-    users.map(user =>
-      locationA.distanceTo(new L.LatLng(user.location.lat, user.location.lng)) <
-      distance
-        ? inRangeUsers.push({
-            location: new L.LatLng(user.location.lat, user.location.lng),
-            name: user.name
-          })
-        : ""
-    );
-
-    return inRangeUsers;
-  };
 
   render() {
-    const position = [this.state.location.lat, this.state.location.lng];
     return (
-      <Map id="mapid" center={position} zoom={this.state.zoom}>
+      <Map
+        id="mapid"
+        center={[this.props.location.lat, this.props.location.lng]}
+        zoom={this.props.zoom}
+      >
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
         {/* Marker des Users */
-        this.state.haveUsersLocation ? (
-          <Marker position={position}>
+        this.props.haveUsersLocation ? (
+          <Marker position={[this.props.location.lat, this.props.location.lng]}>
             <Popup>You are here</Popup>
           </Marker>
         ) : (
@@ -101,14 +40,12 @@ class MapComponent extends Component {
         )}
 
         {/* Marker der anderen User */
-        this.state.haveUsersLocation
-          ? this.giveInRangeUsers(this.props.users, this.props.distance).map(
-              user => (
-                <Marker position={[user.location.lat, user.location.lng]}>
-                  <Popup>{user.name}</Popup>
-                </Marker>
-              )
-            )
+        this.props.haveUsersLocation
+          ? this.props.inRangeUsers.map(({ location, name }) => (
+              <Marker position={[location.lat, location.lng]}>
+                <Popup>{name}</Popup>
+              </Marker>
+            ))
           : ""}
       </Map>
     );
