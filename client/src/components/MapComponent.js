@@ -57,22 +57,26 @@ class MapComponent extends Component {
     );
   }
 
-  giveInRangeLocations = (users, distance) => {
-    let inRangeLocations = [];
+  giveInRangeUsers = (users, range) => {
+    let inRangeUsers = [];
     let locationA = new L.LatLng(
       this.state.location.lat,
       this.state.location.lng
     );
     let locationB;
 
-    console.log(users);
+    users.map(user =>
+      locationA.distanceTo(new L.LatLng(user.location.lat, user.location.lng)) <
+      range
+        ? inRangeUsers.push({
+            location: new L.LatLng(user.location.lat, user.location.lng),
+            name: user.name
+          })
+        : ""
+    );
 
-    /* locationA.distanceTo(new L.LatLng(user.location.lat, user.location.lng)) <
-      distance
-        ? inRangeLocations.push(
-            new L.LatLng(user.location.lat, user.location.lng)
-          )
-        : "" */
+    console.log(inRangeUsers);
+    return inRangeUsers;
   };
 
   render() {
@@ -95,7 +99,11 @@ class MapComponent extends Component {
 
         {/* Marker der anderen User */
         this.state.haveUsersLocation
-          ? this.giveInRangeLocations(this.props.users, 46000)
+          ? this.giveInRangeUsers(this.props.users, 70000).map(user => (
+              <Marker position={[user.location.lat, user.location.lng]}>
+                <Popup>{user.name}</Popup>
+              </Marker>
+            ))
           : ""}
       </Map>
     );

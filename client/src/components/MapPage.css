@@ -5,3 +5,22 @@
 .map-container {
   padding-left: 0px !important;
 }
+
+#btnLocation {
+  margin: 0 0 0 5px;
+}
+
+#formLocation {
+  padding: 20px;
+  background-color: white;
+}
+
+#inputLocation {
+  width: 125px;
+  display: inline-block;
+}
+
+#inputDistance {
+  width: 110px;
+  display: inline-block;
+}

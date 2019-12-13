@@ -36,6 +36,7 @@ class Content extends Component {
                   className="SteckbriefeSuchen"
                   variant="outline-dark"
                   type="submit"
+                  href="/map"
                 >
                   Steckbriefe suchen
                 </Button>

@@ -59,7 +59,7 @@ const users = [
     id: 4,
     name: "Sophia A König",
     alter: 33,
-    wohnort: "Dautphetal",
+    wohnort: "Bechtolsheim",
     bild: "pics/person3.jpg",
     beschreibung:
       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
@@ -68,8 +68,8 @@ const users = [
       email: "3arbi.daifiz@moskow-lottery.org"
     },
     location: {
-      lat: 50.863565,
-      lng: 8.546123
+      lat: 49.813374,
+      lng: 8.19749
     }
   },
   {
@@ -93,7 +93,7 @@ const users = [
     id: 6,
     name: "Michelle W Daecher",
     alter: 21,
-    wohnort: "Waldems",
+    wohnort: "Koblenz",
     bild: "pics/person6.jpg",
     beschreibung:
       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
@@ -102,8 +102,8 @@ const users = [
       email: "JuergenHerzog@einrot.com "
     },
     location: {
-      lat: 50.763565,
-      lng: 8.146123
+      lat: 50.405723,
+      lng: 10.530908
     }
   },
   {
@@ -155,6 +155,108 @@ const users = [
     location: {
       lat: 50.963565,
       lng: 8.646123
+    }
+  },
+  {
+    id: 10,
+    name: "Max Bar",
+    alter: 39,
+    wohnort: "Schwalbach am Taunus",
+    bild: "pics/person10.jpg",
+    beschreibung:
+      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+    kontakt: {
+      telefon: "123456789",
+      email: "JuergenHerzog@einrot.com "
+    },
+    location: {
+      lat: 50.152741,
+      lng: 8.526385
+    }
+  },
+  {
+    id: 11,
+    name: "Katja Bachmeier",
+    alter: 27,
+    wohnort: "Klein-Karben",
+    bild: "pics/person11.jpg",
+    beschreibung:
+      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+    kontakt: {
+      telefon: "123456789",
+      email: "JuergenHerzog@einrot.com "
+    },
+    location: {
+      lat: 50.226647,
+      lng: 8.770711
+    }
+  },
+  {
+    id: 12,
+    name: "Michael Thalberg",
+    alter: 31,
+    wohnort: "Münchhausen",
+    bild: "pics/person12.jpg",
+    beschreibung:
+      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+    kontakt: {
+      telefon: "123456789",
+      email: "JuergenHerzog@einrot.com "
+    },
+    location: {
+      lat: 50.963565,
+      lng: 8.646123
+    }
+  },
+  {
+    id: 13,
+    name: "Lena Mauer",
+    alter: 34,
+    wohnort: "Heidelberg",
+    bild: "pics/person13.jpg",
+    beschreibung:
+      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+    kontakt: {
+      telefon: "123456789",
+      email: "JuergenHerzog@einrot.com "
+    },
+    location: {
+      lat: 49.400526,
+      lng: 8.66151
+    }
+  },
+  {
+    id: 14,
+    name: "Diana Meyer",
+    alter: 29,
+    wohnort: "Würzburg",
+    bild: "pics/person14.jpg",
+    beschreibung:
+      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+    kontakt: {
+      telefon: "123456789",
+      email: "JuergenHerzog@einrot.com "
+    },
+    location: {
+      lat: 49.789898,
+      lng: 9.954421
+    }
+  },
+  {
+    id: 15,
+    name: "Wolfgang Shuster",
+    alter: 38,
+    wohnort: "Hildburghausen",
+    bild: "pics/person15.jpg",
+    beschreibung:
+      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+    kontakt: {
+      telefon: "123456789",
+      email: "JuergenHerzog@einrot.com "
+    },
+    location: {
+      lat: 50.405723,
+      lng: 10.530908
     }
   }
 ];
