@@ -10,7 +10,8 @@ class MapPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      users: []
+      users: [],
+      distance: ""
     };
   }
 
@@ -19,6 +20,14 @@ class MapPage extends Component {
       .then(res => res.json())
       .then(users => this.setState({ users }));
   }
+
+  handleDistanceChange = selectedDistance => {
+    this.setState({
+      distance: selectedDistance
+    });
+    console.log("Parameter: " + selectedDistance);
+    console.log("State: " + this.state.distance);
+  };
 
   render() {
     return (
@@ -34,34 +43,70 @@ class MapPage extends Component {
               />
             </FormGroup>
             <FormGroup id="inputDistance">
-              <Input
-                type="select"
-                name="select"
-                id="exampleSelect"
-                onChange={this.handleDistanceChange}
-              >
+              <Input type="select" name="select" id="exampleSelect">
                 <option unselectable>Umkreis</option>
-                <option>kein Umkreis</option>
-                <option>1 km</option>
-                <option>2 km </option>
-                <option>3 km</option>
-                <option>4 km</option>
-                <option>5 km</option>
-                <option>10 km</option>
-                <option>15 km </option>
-                <option>20 km</option>
-                <option>30 km</option>
-                <option>50 km</option>
+                <option
+                  onClick={() => {
+                    this.handleDistanceChange(1000000);
+                  }}
+                >
+                  kein Umkreis
+                </option>
+                <option
+                  onClick={() => {
+                    this.handleDistanceChange(5000);
+                  }}
+                >
+                  5 km
+                </option>
+                <option
+                  onClick={() => {
+                    this.handleDistanceChange(10000);
+                  }}
+                >
+                  10 km
+                </option>
+                <option
+                  onClick={() => {
+                    this.handleDistanceChange(15000);
+                  }}
+                >
+                  15 km{" "}
+                </option>
+                <option
+                  onClick={() => {
+                    this.handleDistanceChange(20000);
+                  }}
+                >
+                  20 km
+                </option>
+                <option
+                  onClick={() => {
+                    this.handleDistanceChange(30000);
+                  }}
+                >
+                  30 km
+                </option>
+                <option
+                  onClick={() => {
+                    this.handleDistanceChange(50000);
+                  }}
+                >
+                  50 km
+                </option>
               </Input>
             </FormGroup>
-            <Button id="btnLocation" type="submit">
+            {/* <Button id="btnLocation" type="submit">
               <Image src="icons/search.png" />
-            </Button>
+            </Button> */}
           </Form>
-          <UsersList users={this.state.users} />
+          <UsersList users={this.state.users} distance={this.state.distance} />
         </Col>
         <Col xs={9} className="map-container">
-          <MapComponent users={this.state.users} />
+          <MapComponent
+            users={this.state.users}
+            distance={this.state.distance}
+          />
         </Col>
       </Row>
     );

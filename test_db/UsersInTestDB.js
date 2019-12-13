@@ -25,7 +25,7 @@ const users = [
     id: 2,
     name: "Juliane M Sommer",
     alter: 37,
-    wohnort: "Hünstetten",
+    wohnort: "Friedberg (Hessen)",
     bild: "pics/person2.jpg",
     beschreibung:
       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
@@ -34,8 +34,8 @@ const users = [
       email: "2ehab.hassan.921t@epiar.net"
     },
     location: {
-      lat: 50.263565,
-      lng: 8.246123
+      lat: 50.331543,
+      lng: 8.744858
     }
   },
   {
@@ -59,7 +59,7 @@ const users = [
     id: 4,
     name: "Sophia A König",
     alter: 33,
-    wohnort: "Bechtolsheim",
+    wohnort: "Florstadt",
     bild: "pics/person3.jpg",
     beschreibung:
       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
@@ -68,15 +68,15 @@ const users = [
       email: "3arbi.daifiz@moskow-lottery.org"
     },
     location: {
-      lat: 49.813374,
-      lng: 8.19749
+      lat: 50.3245,
+      lng: 8.918653
     }
   },
   {
     id: 5,
     name: "Jens F Frey",
     alter: 56,
-    wohnort: "Bunde",
+    wohnort: "Bad Nauheim",
     bild: "pics/person5.jpg",
     beschreibung:
       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
@@ -85,8 +85,8 @@ const users = [
       email: "pmanolaroshn@mineralka1.cf"
     },
     location: {
-      lat: 50.263565,
-      lng: 8.346123
+      lat: 50.364077,
+      lng: 8.737274
     }
   },
   {
@@ -127,7 +127,7 @@ const users = [
     id: 8,
     name: "Dominik Grunwald",
     alter: 35,
-    wohnort: "Amöneburg",
+    wohnort: "Rosbach vor der Höhe",
     bild: "pics/person8.jpg",
     beschreibung:
       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
@@ -136,8 +136,8 @@ const users = [
       email: "JuergenHerzog@einrot.com "
     },
     location: {
-      lat: 50.763565,
-      lng: 8.946123
+      lat: 50.267121,
+      lng: 8.700607
     }
   },
   {
