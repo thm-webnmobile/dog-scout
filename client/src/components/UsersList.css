@@ -1,6 +1,7 @@
 #users-list-id {
-  height: 100vh;
+  height: 82vh;
   left: 0;
   top: 0;
   overflow-y: scroll;
+  background-color: white;
 }
