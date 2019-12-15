@@ -5,12 +5,10 @@ const UserSchema = new Schema({
     name:{
         type:String,
         required:true,
-        default: ''
     },
     email:{
         type: String,
         required: true,
-        default: ''
     },
     password:{
         type:String,
@@ -19,10 +17,6 @@ const UserSchema = new Schema({
     date:{
         type:Date,
         default:Date.now
-    },
-    isDeleted: {
-        type: Boolean,
-        default: false
     }
 });
 

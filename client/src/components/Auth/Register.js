@@ -1,5 +1,9 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { registerUser } from "../../actions/authActions";
+import classnames from "classnames";
 import { Button, Alert } from 'react-bootstrap';
 import 'whatwg-fetch';
 
@@ -17,6 +21,21 @@ class Register extends Component {
         };
     }
 
+    componentDidMount() {
+        // If logged in and user navigates to Register page, should redirect them to dashboard
+        if (this.props.auth.isAuthenticated) {
+            this.props.history.push("/home");
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.errors) {
+            this.setState({
+                errors: nextProps.errors
+            });
+        }
+    }
+
     onChange = e => {
         this.setState({ [e.target.id]: e.target.value });
     };
@@ -29,6 +48,8 @@ class Register extends Component {
             password: this.state.password,
             password2: this.state.password2
         };
+
+        this.props.registerUser(newUser, this.props.history);
         console.log(newUser);
 
         axios.post('http://localhost:5000/api/users/register', newUser)
@@ -40,6 +61,7 @@ class Register extends Component {
         const { errors } = this.state;
         return (
             <div className="container">
+                <br/>
                 <div className="row">
                     <div className="col-centered ">
                         <Link to="/">
@@ -54,6 +76,8 @@ class Register extends Component {
                         </div>
                         <form noValidate onSubmit={this.onSubmit}>
                             <div className="input-field col s12">
+                            <label htmlFor="name">Name:</label>
+                                <br/>
                                 <input
                                     name="name"
                                     onChange={this.onChange}
@@ -61,41 +85,67 @@ class Register extends Component {
                                     error={errors.name}
                                     id="name"
                                     type="text"
-                                    placeholder="Name"
+                                    //placeholder="Name"
+                                    className={classnames("", {
+                                        invalid: errors.name
+                                    })}
                                 />
+                                <br/>
+                                <span className="red-text">{errors.name}</span>
                             </div>
                             <br />
                             <div className="input-field col s12">
+                            <label htmlFor="email">Email:</label>
+                                <br/>
                                 <input
                                     onChange={this.onChange}
                                     value={this.state.email}
                                     error={errors.email}
                                     id="email"
                                     type="email"
-                                    placeholder="E-Mail"
+                                    //placeholder="E-Mail"
+                                    className={classnames("", {
+                                        invalid: errors.email
+                                    })}
                                 />
+<br/>
+                                <span className="red-text">{errors.email}</span>
                             </div>
                             <br />
                             <div className="input-field col s12">
+                            <label htmlFor="password">Passwort:</label>
+                            <br/>
                                 <input
                                     onChange={this.onChange}
                                     value={this.state.password}
                                     error={errors.password}
                                     id="password"
                                     type="password"
-                                    placeholder="Passwort"
+                                    //placeholder="Passwort"
+                                    className={classnames("", {
+                                        invalid: errors.password
+                                    })}
                                 />
+<br/>
+                                <span className="red-text">{errors.password}</span>
                             </div>
                             <br />
                             <div className="input-field col s12">
+                            <label htmlFor="password2">Passwort Bestätigung:</label>
+                                <br/>
                                 <input
                                     onChange={this.onChange}
                                     value={this.state.password2}
                                     error={errors.password2}
                                     id="password2"
                                     type="password"
-                                    placeholder="Passwort Bestätigung"
+                                    //placeholder="Passwort Bestätigung"
+                                    className={classnames("", {
+                                        invalid: errors.password2
+                                    })}
                                 />
+                                <br/>
+                                <span className="red-text">{errors.password2}</span>
                             </div>
                             <br />
                             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
@@ -110,4 +160,18 @@ class Register extends Component {
         );
     }
 }
-export default Register;
+Register.propTypes = {
+    registerUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+    auth: state.auth,
+    errors: state.errors
+});
+
+export default connect(
+    mapStateToProps,
+    { registerUser }
+)(withRouter(Register));

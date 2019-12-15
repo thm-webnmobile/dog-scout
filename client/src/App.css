@@ -44,9 +44,9 @@ Link {
   margin: 0 auto;
 }
 
-.SteckbriefeSuchen{
+.button-style{
   background-color: #b7a274;
-  color: white;
+  color: black;
 }
 
 .Hintergrund{
@@ -83,4 +83,21 @@ Button{
 
 a {
   color: black;
+}
+
+.red-text {
+  color: red;
+}
+
+.space {
+  margin-left: 20px;
+}
+
+.Formular {
+  padding: 20px;
+  background-color: white;
+}
+
+.App{
+  font-family: 'Montserrat', sans-serif;
 }
