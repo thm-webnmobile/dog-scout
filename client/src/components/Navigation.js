@@ -19,7 +19,15 @@ import Landing from "./landing";
 import LoggedIn from "./LoggedIn";
 import Home from "./home";
 
+import { logoutUser } from "../actions/authActions";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+
 class Navigation extends Component {
+  onLogoutClick = e => {
+    e.preventDefault();
+    this.props.logoutUser();
+  };
   render() {
     return (
       <Router>
@@ -54,7 +62,13 @@ class Navigation extends Component {
             </Navbar.Brand>
 
             <Nav.Item>
-              <Nav.Link href="/">Abmelden</Nav.Link>
+              <Button
+                className="button-style"
+                variant="outline-dark"
+                onClick={this.onLogoutClick}
+              >
+                Abmelden
+              </Button>
             </Nav.Item>
           </Navbar>
         </div>
@@ -63,4 +77,13 @@ class Navigation extends Component {
   }
 }
 
-export default Navigation;
+Navigation.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps, { logoutUser })(Navigation);

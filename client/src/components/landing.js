@@ -14,6 +14,7 @@ class Landing extends Component {
         <div style={{ height: "75vh" }} className="container valign-wrapper">
           <div className="row">
             <div className="col-centered col-xs-3">
+              <br />
               <h3>
                 Willkommen bei <b>Dog Scout!</b>
               </h3>
@@ -28,9 +29,6 @@ class Landing extends Component {
               </Button>
               <Button variant="dark" className="col s6 btn-block" href="/login">
                 Anmelden
-              </Button>
-              <Button variant="dark" className="col s6 btn-block" href="/home">
-                [schnell anmelden]
               </Button>
             </div>
           </div>

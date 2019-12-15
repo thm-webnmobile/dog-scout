@@ -106,4 +106,21 @@ psd
 thumb
 sketch
 
+/.pnp
+.pnp.js
+
+/coverage
+
+/build
+
+.DS_Store
+
+.env.local 
+.env.development.local 
+.env.test.local
+.env.production.
+
+npm-debug.log
+
+
 # End of https://www.gitignore.io/api/node,react

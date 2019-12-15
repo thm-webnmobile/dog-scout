@@ -2,12 +2,17 @@ import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "../App.css";
 import Profilbild from "./profilbild-beispiel.jpg";
-import { Form, FormGroup, FormControl } from "react-bootstrap";
+import { Form, FormGroup, FormControl, Button } from "react-bootstrap";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navigation from "./Navigation.js";
 
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { logoutUser } from "../actions/authActions";
+
 class Profilseite extends Component {
   render() {
+    const { user } = this.props.auth;
     return (
       <Router>
         <Navigation />
@@ -23,6 +28,9 @@ class Profilseite extends Component {
                 height="auto"
                 className="d-block"
               />
+              <Button className="button-style" variant="outline-dark">
+                Profilbild ändern
+              </Button>
             </Col>
             <Col className="col" sm={{ offset: 1 }}>
               <Form>
@@ -40,7 +48,9 @@ class Profilseite extends Component {
                 />
                 <br />
                 <br />
-                Name: Marie Mustermann
+                Name: {user.name}
+                <br />
+                E-Mail: {user.email}
                 <br />
                 <br />
                 Alter: 29
@@ -74,4 +84,13 @@ class Profilseite extends Component {
   }
 }
 
-export default Profilseite;
+Profilseite.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps, { logoutUser })(Profilseite);

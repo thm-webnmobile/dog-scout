@@ -34,8 +34,10 @@ mongoose
   .then(() => console.log("MongoDB connected!"))
   .catch(err => consolee.log(err));
 
+//Passport middleware
 app.use(passport.initialize());
 
+//Passpot config
 require("./config/passport")(passport);
 
 app.use("/users", usersTestRoute); //nhi: nur vorübergehend zu Testzwecken!

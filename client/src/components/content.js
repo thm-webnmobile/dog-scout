@@ -7,18 +7,28 @@ import Button from "react-bootstrap/Button";
 import Navigation from "./Navigation";
 import Profilseite from "./profilseite";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { logoutUser } from "../actions/authActions";
 
 class Content extends Component {
   render() {
+    const { user } = this.props.auth; //!!!
     return (
       <Router>
         <div>
           <div className="Suche">
             <br />
-            <h3 className="centered">Ich suche...</h3>
+
+            <h1 className="space">
+              Willkommen, <b>{user.name.split(" ")[0]}!</b>
+            </h1>
+
             <br />
             <div className="centered">
-              <Form>
+              <Form className="border border-secondary Formular rounded-sm">
+                <h2 className="centered">Ich suche...</h2>
+                <br />
                 <Form.Check
                   type="radio"
                   name="Suche"
@@ -33,13 +43,15 @@ class Content extends Component {
                 />
                 <br />
                 <Button
-                  className="SteckbriefeSuchen"
+                  className="button-style"
                   variant="outline-dark"
                   type="submit"
                   href="/map"
                 >
                   Steckbriefe suchen
                 </Button>
+
+                <br />
               </Form>
             </div>
           </div>
@@ -60,4 +72,13 @@ class Content extends Component {
   }
 }
 
-export default Content;
+Content.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps, { logoutUser })(Content);
