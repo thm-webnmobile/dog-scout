@@ -8,6 +8,7 @@
 
 #btnLocation {
   margin: 0 0 0 5px;
+  display: inline-block;
 }
 
 #formLocation {
@@ -22,5 +23,5 @@
 
 #inputDistance {
   width: 130px;
-  display: inline-block;
+  display: block;
 }

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Row, Col, Image } from "react-bootstrap";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import axios from "axios";
 import UsersList from "./UsersList";
 import MapComponent from "./MapComponent";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -15,6 +16,7 @@ class MapPage extends Component {
         lat: 50.321799,
         lng: 8.766996
       },
+      locationInput: "",
       zoom: 2,
       users: [],
       distance: "",
@@ -97,6 +99,35 @@ class MapPage extends Component {
     console.log(inRangeUsers);
   };
 
+  handleChangedLocation = event => {
+    this.setState({
+      locationInput: event.target.value
+    });
+  };
+
+  handleNewLocation = event => {
+    console.log(
+      "http://photon.komoot.de/api/?q=" + this.state.locationInput + "&limit=1"
+    );
+    axios
+      .get(
+        "http://photon.komoot.de/api/?q=" +
+          this.state.locationInput +
+          "&limit=1"
+      )
+      .then(response =>
+        this.setState({
+          location: {
+            lat: JSON.parse(response.request.response).features[0].geometry
+              .coordinates[1],
+            lng: JSON.parse(response.request.response).features[0].geometry
+              .coordinates[0]
+          }
+        })
+      )
+      .catch(err => console.log(err));
+  };
+
   render() {
     return (
       <Row>
@@ -104,12 +135,17 @@ class MapPage extends Component {
           <Form id="formLocation" onSubmit={this.handleSubmit}>
             <FormGroup id="inputLocation">
               <Input
-                type="search"
+                type="text"
                 name="location"
                 id="location"
                 placeholder="Ihr Standort"
+                value={this.state.locationInput}
+                onChange={this.handleChangedLocation}
               />
             </FormGroup>
+            <Button id="btnLocation" onClick={this.handleNewLocation}>
+              <Image src="icons/search.png" />
+            </Button>
             <FormGroup id="inputDistance">
               <Input type="select" name="select" id="exampleSelect">
                 <option unselectable>Umkreis</option>
@@ -119,6 +155,27 @@ class MapPage extends Component {
                   }}
                 >
                   kein Umkreis
+                </option>
+                <option
+                  onClick={() => {
+                    this.giveInRangeUsers(1000);
+                  }}
+                >
+                  1 km
+                </option>
+                <option
+                  onClick={() => {
+                    this.giveInRangeUsers(2000);
+                  }}
+                >
+                  2 km
+                </option>
+                <option
+                  onClick={() => {
+                    this.giveInRangeUsers(3000);
+                  }}
+                >
+                  3 km
                 </option>
                 <option
                   onClick={() => {
@@ -136,37 +193,13 @@ class MapPage extends Component {
                 </option>
                 <option
                   onClick={() => {
-                    this.giveInRangeUsers(15000);
-                  }}
-                >
-                  15 km
-                </option>
-                <option
-                  onClick={() => {
                     this.giveInRangeUsers(20000);
                   }}
                 >
                   20 km
                 </option>
-                <option
-                  onClick={() => {
-                    this.giveInRangeUsers(30000);
-                  }}
-                >
-                  30 km
-                </option>
-                <option
-                  onClick={() => {
-                    this.giveInRangeUsers(50000);
-                  }}
-                >
-                  50 km
-                </option>
               </Input>
             </FormGroup>
-            {/* <Button id="btnLocation" type="submit">
-              <Image src="icons/search.png" />
-            </Button> */}
           </Form>
           <UsersList inRangeUsers={this.state.inRangeUsersState} />
         </Col>
