@@ -105,6 +105,8 @@ class MapPage extends Component {
     });
   };
 
+  //Geocoding mit Photon Komoot
+
   handleNewLocation = event => {
     console.log(
       "http://photon.komoot.de/api/?q=" + this.state.locationInput + "&limit=1"

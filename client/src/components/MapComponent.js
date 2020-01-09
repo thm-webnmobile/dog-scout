@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import UserPopUp from "./UserPopUp";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
@@ -41,9 +42,11 @@ class MapComponent extends Component {
 
         {/* Marker der anderen User */
         this.props.haveUsersLocation
-          ? this.props.inRangeUsers.map(({ location, name }) => (
-              <Marker position={[location.lat, location.lng]}>
-                <Popup>{name}</Popup>
+          ? this.props.inRangeUsers.map(user => (
+              <Marker position={[user.location.lat, user.location.lng]}>
+                <Popup>
+                  <UserPopUp userCurrent={user} />
+                </Popup>
               </Marker>
             ))
           : ""}

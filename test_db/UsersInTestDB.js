@@ -11,7 +11,7 @@ const users = [
     wohnort: "Butzbach",
     bild: "pics/person1.jpg",
     beschreibung:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+      "Hallo, ich habe einen Labrador und wir gehen gerne nach Feierabend große Runden spazieren.",
     kontakt: {
       telefon: "123456789",
       email: "zess.ess.73@rfd-mauritanie.org"
@@ -28,7 +28,7 @@ const users = [
     wohnort: "Friedberg (Hessen)",
     bild: "pics/person2.jpg",
     beschreibung:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+      "Hallo, ich habe einen Labrador und wir gehen gerne nach Feierabend große Runden spazieren.",
     kontakt: {
       telefon: "123456789",
       email: "2ehab.hassan.921t@epiar.net"
@@ -45,7 +45,7 @@ const users = [
     wohnort: "Sinn",
     bild: "pics/person4.jpg",
     beschreibung:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+      "Hallo, ich habe einen Labrador und wir gehen gerne nach Feierabend große Runden spazieren.",
     kontakt: {
       telefon: "123456789",
       email: "8grandon.tho@qaaw.ga"
@@ -62,7 +62,7 @@ const users = [
     wohnort: "Florstadt",
     bild: "pics/person3.jpg",
     beschreibung:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+      "Hallo, ich habe einen Labrador und wir gehen gerne nach Feierabend große Runden spazieren.",
     kontakt: {
       telefon: "123456789",
       email: "3arbi.daifiz@moskow-lottery.org"
@@ -79,7 +79,7 @@ const users = [
     wohnort: "Bad Nauheim",
     bild: "pics/person5.jpg",
     beschreibung:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+      "Hallo, ich habe einen Labrador und wir gehen gerne nach Feierabend große Runden spazieren.",
     kontakt: {
       telefon: "123456789",
       email: "pmanolaroshn@mineralka1.cf"
@@ -96,7 +96,7 @@ const users = [
     wohnort: "Koblenz",
     bild: "pics/person6.jpg",
     beschreibung:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+      "Hallo, ich habe einen Labrador und wir gehen gerne nach Feierabend große Runden spazieren.",
     kontakt: {
       telefon: "123456789",
       email: "JuergenHerzog@einrot.com "
@@ -113,7 +113,7 @@ const users = [
     wohnort: "Usingen",
     bild: "pics/person7.jpg",
     beschreibung:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+      "Hallo, ich habe einen Labrador und wir gehen gerne nach Feierabend große Runden spazieren.",
     kontakt: {
       telefon: "123456789",
       email: "JuergenHerzog@einrot.com "
@@ -130,7 +130,7 @@ const users = [
     wohnort: "Rosbach vor der Höhe",
     bild: "pics/person8.jpg",
     beschreibung:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+      "Hallo, ich habe einen Labrador und wir gehen gerne nach Feierabend große Runden spazieren.",
     kontakt: {
       telefon: "123456789",
       email: "JuergenHerzog@einrot.com "
@@ -147,7 +147,7 @@ const users = [
     wohnort: "Münchhausen",
     bild: "pics/person9.jpg",
     beschreibung:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+      "Hallo, ich habe einen Labrador und wir gehen gerne nach Feierabend große Runden spazieren.",
     kontakt: {
       telefon: "123456789",
       email: "JuergenHerzog@einrot.com "
@@ -164,7 +164,7 @@ const users = [
     wohnort: "Schwalbach am Taunus",
     bild: "pics/person10.jpg",
     beschreibung:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+      "Hallo, ich habe einen Labrador und wir gehen gerne nach Feierabend große Runden spazieren.",
     kontakt: {
       telefon: "123456789",
       email: "JuergenHerzog@einrot.com "
@@ -181,7 +181,7 @@ const users = [
     wohnort: "Klein-Karben",
     bild: "pics/person11.jpg",
     beschreibung:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+      "Hallo, ich habe einen Labrador und wir gehen gerne nach Feierabend große Runden spazieren.",
     kontakt: {
       telefon: "123456789",
       email: "JuergenHerzog@einrot.com "
@@ -198,7 +198,7 @@ const users = [
     wohnort: "Münchhausen",
     bild: "pics/person12.jpg",
     beschreibung:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+      "Hallo, ich habe einen Labrador und wir gehen gerne nach Feierabend große Runden spazieren.",
     kontakt: {
       telefon: "123456789",
       email: "JuergenHerzog@einrot.com "
@@ -215,7 +215,7 @@ const users = [
     wohnort: "Heidelberg",
     bild: "pics/person13.jpg",
     beschreibung:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+      "Hallo, ich habe einen Labrador und wir gehen gerne nach Feierabend große Runden spazieren.",
     kontakt: {
       telefon: "123456789",
       email: "JuergenHerzog@einrot.com "
@@ -232,7 +232,7 @@ const users = [
     wohnort: "Würzburg",
     bild: "pics/person14.jpg",
     beschreibung:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+      "Hallo, ich habe einen Labrador und wir gehen gerne nach Feierabend große Runden spazieren.",
     kontakt: {
       telefon: "123456789",
       email: "JuergenHerzog@einrot.com "
@@ -249,7 +249,7 @@ const users = [
     wohnort: "Hildburghausen",
     bild: "pics/person15.jpg",
     beschreibung:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+      "Hallo, ich habe einen Labrador und wir gehen gerne nach Feierabend große Runden spazieren.",
     kontakt: {
       telefon: "123456789",
       email: "JuergenHerzog@einrot.com "
