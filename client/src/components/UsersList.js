@@ -6,11 +6,22 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 class UsersList extends Component {
+  setId = id => {
+    /* console.log("UsersList Component: " + id); */
+    this.props.setId(id);
+  };
+
   render() {
     return (
       <ListGroup id="users-list-id">
-        {this.props.inRangeUsers.map(({ name, wohnort, bild }) => (
-          <UserListItem name={name} wohnort={wohnort} bild={bild} />
+        {this.props.inRangeUsers.map(({ name, wohnort, bild, id }) => (
+          <UserListItem
+            id={id}
+            name={name}
+            wohnort={wohnort}
+            bild={bild}
+            setId={id => this.setId(id)}
+          />
         ))}
       </ListGroup>
     );

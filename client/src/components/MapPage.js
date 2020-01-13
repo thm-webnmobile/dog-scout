@@ -11,6 +11,7 @@ import L from "leaflet";
 class MapPage extends Component {
   constructor(props) {
     super(props);
+    this.setId = this.setId.bind(this);
     this.state = {
       location: {
         lat: 50.321799,
@@ -21,7 +22,8 @@ class MapPage extends Component {
       users: [],
       distance: "",
       haveUsersLocation: "",
-      inRangeUsersState: []
+      inRangeUsersState: [],
+      idState: 0
     };
   }
 
@@ -106,7 +108,6 @@ class MapPage extends Component {
   };
 
   //Geocoding mit Photon Komoot
-
   handleNewLocation = event => {
     console.log(
       "http://photon.komoot.de/api/?q=" + this.state.locationInput + "&limit=1"
@@ -130,7 +131,19 @@ class MapPage extends Component {
       .catch(err => console.log(err));
   };
 
+  setId(idInput) {
+    /* this.setState({
+      idState: idInput
+    });
+    console.log("MapPage Component: " + this.state.idState); */
+
+    this.setState({ idState: idInput }, function() {
+      /* console.log("MapPage Component: " + this.state.idState); */
+    });
+  }
+
   render() {
+    const idState = this.state.idState;
     return (
       <Row>
         <Col xs={3} className="users-list">
@@ -150,7 +163,7 @@ class MapPage extends Component {
             </Button>
             <FormGroup id="inputDistance">
               <Input type="select" name="select" id="exampleSelect">
-                <option unselectable>Umkreis</option>
+                <option unselectable="true">Umkreis</option>
                 <option
                   onClick={() => {
                     this.giveInRangeUsers(1000000);
@@ -203,10 +216,14 @@ class MapPage extends Component {
               </Input>
             </FormGroup>
           </Form>
-          <UsersList inRangeUsers={this.state.inRangeUsersState} />
+          <UsersList
+            inRangeUsers={this.state.inRangeUsersState}
+            setId={idInput => this.setId(idInput)}
+          />
         </Col>
         <Col xs={9} className="map-container">
           <MapComponent
+            id={idState}
             location={this.state.location}
             zoom={this.state.zoom}
             haveUsersLocation={this.state.haveUsersLocation}

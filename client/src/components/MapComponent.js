@@ -13,13 +13,48 @@ L.Icon.Default.mergeOptions({
   shadowUrl: require("leaflet/dist/images/marker-shadow.png")
 });
 
+const redIcon = L.icon({
+  iconUrl: "../../icons/geo.svg",
+  shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
+
+  iconSize: [43, 47], // size of the icon
+  shadowSize: [50, 64], // size of the shadow
+  iconAnchor: [20, 43], // point of the icon which will correspond to marker's location
+  shadowAnchor: [12, 64], // the same for the shadow
+  popupAnchor: [0, -33] // point from which the popup should open relative to the iconAnchor
+});
+
 class MapComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      idOfClickedUser: undefined
+    };
+  }
+
+  componentDidUpdate() {
+    if (
+      this.state.idOfClickedUser == undefined ||
+      this.props.id != this.state.idOfClickedUser
+    ) {
+      this.setState({
+        idOfClickedUser: this.props.id
+      });
+    }
+    /* console.log("MapComponent: " + this.props.id); */
+  }
+
+  getClickedUser() {
+    const clickedUser = this.props.inRangeUsers.filter(
+      user => user.id == this.state.idOfClickedUser
+    );
+
+    return clickedUser[0];
   }
 
   render() {
+    const clickedUser = this.getClickedUser();
+
     return (
       <Map
         id="mapid"
@@ -30,7 +65,6 @@ class MapComponent extends Component {
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-
         {/* Marker des Users */
         this.props.haveUsersLocation ? (
           <Marker position={[this.props.location.lat, this.props.location.lng]}>
@@ -39,7 +73,6 @@ class MapComponent extends Component {
         ) : (
           ""
         )}
-
         {/* Marker der anderen User */
         this.props.haveUsersLocation
           ? this.props.inRangeUsers.map(user => (
@@ -50,6 +83,19 @@ class MapComponent extends Component {
               </Marker>
             ))
           : ""}
+        {clickedUser ? (
+          <Marker
+            position={[clickedUser.location.lat, clickedUser.location.lng]}
+            icon={redIcon}
+          >
+            <Popup>
+              <UserPopUp userCurrent={clickedUser} />
+            </Popup>
+          </Marker>
+        ) : (
+          ""
+        )}
+        )}
       </Map>
     );
   }

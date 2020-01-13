@@ -1,16 +1,32 @@
 import React, { Component } from "react";
 import { ListGroupItem } from "reactstrap";
 import { Row, Col, Image } from "react-bootstrap";
+import "./UserListItem.css";
 
 class UserListItem extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      id: 0
+    };
   }
+
+  shareClickedItem = idItem => {
+    /* this.setState({
+      id: idItem
+    });
+    console.log(this.state.id); */
+
+    this.props.setId(idItem);
+  };
 
   render() {
     return (
-      <ListGroupItem>
+      <ListGroupItem
+        action
+        className="user-list-item"
+        onClick={() => this.shareClickedItem(this.props.id)}
+      >
         <Row>
           <Col xs={3} className="person-wrapper">
             <Image
