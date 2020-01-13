@@ -21,6 +21,18 @@ const redIcon = L.icon({
   shadowSize: [50, 64], // size of the shadow
   iconAnchor: [20, 43], // point of the icon which will correspond to marker's location
   shadowAnchor: [12, 64], // the same for the shadow
+  popupAnchor: [0, -33], // point from which the popup should open relative to the iconAnchor
+  className: "red-marker"
+});
+
+const blackIcon = L.icon({
+  iconUrl: "../../icons/address.svg",
+  shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
+
+  iconSize: [42, 46], // size of the icon
+  shadowSize: [50, 64], // size of the shadow
+  iconAnchor: [20, 43], // point of the icon which will correspond to marker's location
+  shadowAnchor: [12, 64], // the same for the shadow
   popupAnchor: [0, -33] // point from which the popup should open relative to the iconAnchor
 });
 
@@ -48,7 +60,6 @@ class MapComponent extends Component {
     const clickedUser = this.props.inRangeUsers.filter(
       user => user.id == this.state.idOfClickedUser
     );
-
     return clickedUser[0];
   }
 
@@ -67,7 +78,10 @@ class MapComponent extends Component {
         />
         {/* Marker des Users */
         this.props.haveUsersLocation ? (
-          <Marker position={[this.props.location.lat, this.props.location.lng]}>
+          <Marker
+            position={[this.props.location.lat, this.props.location.lng]}
+            icon={blackIcon}
+          >
             <Popup>You are here</Popup>
           </Marker>
         ) : (

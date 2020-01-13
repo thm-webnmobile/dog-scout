@@ -136,8 +136,8 @@ const users = [
       email: "JuergenHerzog@einrot.com "
     },
     location: {
-      lat: 50.267121,
-      lng: 8.700607
+      lat: 50.262381,
+      lng: 8.732838
     }
   },
   {

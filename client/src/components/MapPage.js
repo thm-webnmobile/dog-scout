@@ -87,8 +87,11 @@ class MapPage extends Component {
       selectedDistance
         ? inRangeUsers.push({
             location: new L.LatLng(user.location.lat, user.location.lng),
+            id: user.id,
             name: user.name,
             wohnort: user.wohnort,
+            alter: user.alter,
+            beschreibung: user.beschreibung,
             bild: user.bild
           })
         : ""
