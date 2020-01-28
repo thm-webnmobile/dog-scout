@@ -28,11 +28,11 @@ class MapPage extends Component {
   }
 
   componentWillMount() {
-    fetch("/users")
+    fetch("/api/usersForMap")
       .then(res => res.json())
       .then(users => this.setState({ users }));
 
-    fetch("/users")
+    fetch("/api/usersForMap")
       .then(res => res.json())
       .then(inRangeUsersState => this.setState({ inRangeUsersState }));
   }
@@ -67,6 +67,7 @@ class MapPage extends Component {
           });
       }
     );
+    this.giveInRangeUsers(1000000);
   }
 
   giveInRangeUsers = selectedDistance => {
@@ -87,7 +88,7 @@ class MapPage extends Component {
       selectedDistance
         ? inRangeUsers.push({
             location: new L.LatLng(user.location.lat, user.location.lng),
-            id: user.id,
+            _id: user._id,
             name: user.name,
             wohnort: user.wohnort,
             alter: user.alter,
@@ -97,11 +98,15 @@ class MapPage extends Component {
         : ""
     );
 
+    /* this.setState({ inRangeUsersState: inRangeUsers }, function() {
+      console.log(this.state.inRangeUsersState);
+    }); */
+
     this.setState({
       inRangeUsersState: inRangeUsers
     });
 
-    console.log(inRangeUsers);
+    /* console.log("Users im Umkreis: " + inRangeUsers); */
   };
 
   handleChangedLocation = event => {
@@ -226,7 +231,7 @@ class MapPage extends Component {
         </Col>
         <Col xs={9} className="map-container">
           <MapComponent
-            id={idState}
+            _id={idState}
             location={this.state.location}
             zoom={this.state.zoom}
             haveUsersLocation={this.state.haveUsersLocation}

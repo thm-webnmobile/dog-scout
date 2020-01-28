@@ -25,7 +25,7 @@ class UserListItem extends Component {
       <ListGroupItem
         action
         className="user-list-item"
-        onClick={() => this.shareClickedItem(this.props.id)}
+        onClick={() => this.shareClickedItem(this.props._id)}
       >
         <Row>
           <Col xs={3} className="person-wrapper">

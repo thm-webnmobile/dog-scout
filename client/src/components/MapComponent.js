@@ -47,10 +47,10 @@ class MapComponent extends Component {
   componentDidUpdate() {
     if (
       this.state.idOfClickedUser == undefined ||
-      this.props.id != this.state.idOfClickedUser
+      this.props._id != this.state.idOfClickedUser
     ) {
       this.setState({
-        idOfClickedUser: this.props.id
+        idOfClickedUser: this.props._id
       });
     }
     /* console.log("MapComponent: " + this.props.id); */
@@ -58,13 +58,14 @@ class MapComponent extends Component {
 
   getClickedUser() {
     const clickedUser = this.props.inRangeUsers.filter(
-      user => user.id == this.state.idOfClickedUser
+      user => user._id == this.state.idOfClickedUser
     );
     return clickedUser[0];
   }
 
   render() {
     const clickedUser = this.getClickedUser();
+    /*     in einer variablen die koordinaten des roten markers speichern und mit den blauen marker vergleichen, wenn gleich dann wird der blaue marker nicht gerendert */
 
     return (
       <Map

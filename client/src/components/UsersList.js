@@ -12,11 +12,12 @@ class UsersList extends Component {
   };
 
   render() {
+    console.log(this.props.inRangeUsers);
     return (
       <ListGroup id="users-list-id">
-        {this.props.inRangeUsers.map(({ name, wohnort, bild, id }) => (
+        {this.props.inRangeUsers.map(({ name, wohnort, bild, _id }) => (
           <UserListItem
-            id={id}
+            _id={_id}
             name={name}
             wohnort={wohnort}
             bild={bild}

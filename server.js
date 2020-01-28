@@ -7,6 +7,7 @@ const app = express();
 const cors = require("cors"); //?
 const passport = require("passport");
 const users = require("./routes/api/users");
+const usersForMap = require("./routes/api/usersForMap");
 const usersTestRoute = require("./routes/usersTest"); //nhi: nur vorübergehend zu Testzwecken!
 
 //The Promise object represents the eventual completion (or failure) of an asynchronous operation, and its resulting value
@@ -42,6 +43,7 @@ require("./config/passport")(passport);
 
 app.use("/users", usersTestRoute); //nhi: nur vorübergehend zu Testzwecken!
 app.use("/api/users", users);
+app.use("/api/usersForMap", usersForMap);
 
 const port = process.env.PORT || 5000;
 
