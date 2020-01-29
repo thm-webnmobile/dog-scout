@@ -19,10 +19,10 @@ class MapPage extends Component {
       },
       locationInput: "",
       zoom: 2,
-      users: [],
+      usersAll: [],
       distance: "",
       haveUsersLocation: "",
-      inRangeUsersState: [],
+      usersInRange: [],
       idState: 0
     };
   }
@@ -30,11 +30,31 @@ class MapPage extends Component {
   componentWillMount() {
     fetch("/api/usersForMap")
       .then(res => res.json())
-      .then(users => this.setState({ users }));
+      .then(usersRaw => {
+        // Show only "i" amount of users (disregards users that register)
+        let filteredUsers = [];
+        for (let i = 0; i < usersRaw.length; i++) {
+          if (i <= 18) {
+            filteredUsers.push(usersRaw[i]);
+          }
+        }
+
+        this.setState({ usersAll: filteredUsers });
+      });
 
     fetch("/api/usersForMap")
       .then(res => res.json())
-      .then(inRangeUsersState => this.setState({ inRangeUsersState }));
+      .then(usersRaw => {
+        // Show only "i" amount of users (disregards users that register)
+        let filteredUsers = [];
+        for (let i = 0; i < usersRaw.length; i++) {
+          if (i <= 18) {
+            filteredUsers.push(usersRaw[i]);
+          }
+        }
+
+        this.setState({ usersInRange: filteredUsers });
+      });
   }
 
   componentDidMount() {
@@ -83,7 +103,7 @@ class MapPage extends Component {
 
     console.log(selectedDistance);
 
-    this.state.users.map(user =>
+    this.state.usersAll.map(user =>
       locationA.distanceTo(new L.LatLng(user.location.lat, user.location.lng)) <
       selectedDistance
         ? inRangeUsers.push({
@@ -98,15 +118,7 @@ class MapPage extends Component {
         : ""
     );
 
-    /* this.setState({ inRangeUsersState: inRangeUsers }, function() {
-      console.log(this.state.inRangeUsersState);
-    }); */
-
-    this.setState({
-      inRangeUsersState: inRangeUsers
-    });
-
-    /* console.log("Users im Umkreis: " + inRangeUsers); */
+    this.setState({ usersInRange: inRangeUsers });
   };
 
   handleChangedLocation = event => {
@@ -140,17 +152,13 @@ class MapPage extends Component {
   };
 
   setId(idInput) {
-    /* this.setState({
-      idState: idInput
-    });
-    console.log("MapPage Component: " + this.state.idState); */
-
     this.setState({ idState: idInput }, function() {
       /* console.log("MapPage Component: " + this.state.idState); */
     });
   }
 
   render() {
+    console.log(this.state.inRangeUser);
     const idState = this.state.idState;
     return (
       <Row>
@@ -225,7 +233,7 @@ class MapPage extends Component {
             </FormGroup>
           </Form>
           <UsersList
-            inRangeUsers={this.state.inRangeUsersState}
+            usersInRange={this.state.usersInRange}
             setId={idInput => this.setId(idInput)}
           />
         </Col>
@@ -235,7 +243,7 @@ class MapPage extends Component {
             location={this.state.location}
             zoom={this.state.zoom}
             haveUsersLocation={this.state.haveUsersLocation}
-            inRangeUsers={this.state.inRangeUsersState}
+            usersInRange={this.state.usersInRange}
           />
         </Col>
       </Row>

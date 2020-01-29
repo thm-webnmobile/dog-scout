@@ -57,7 +57,7 @@ class MapComponent extends Component {
   }
 
   getClickedUser() {
-    const clickedUser = this.props.inRangeUsers.filter(
+    const clickedUser = this.props.usersInRange.filter(
       user => user._id == this.state.idOfClickedUser
     );
     return clickedUser[0];
@@ -90,7 +90,7 @@ class MapComponent extends Component {
         )}
         {/* Marker der anderen User */
         this.props.haveUsersLocation
-          ? this.props.inRangeUsers.map(user => (
+          ? this.props.usersInRange.map(user => (
               <Marker position={[user.location.lat, user.location.lng]}>
                 <Popup>
                   <UserPopUp userCurrent={user} />
