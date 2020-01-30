@@ -17,6 +17,7 @@ class UsersList extends Component {
         {this.props.usersInRange.map(({ name, wohnort, bild, _id }) => (
           <UserListItem
             _id={_id}
+            key={_id}
             name={name}
             wohnort={wohnort}
             bild={bild}

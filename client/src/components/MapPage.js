@@ -27,7 +27,7 @@ class MapPage extends Component {
     };
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     fetch("/api/usersForMap")
       .then(res => res.json())
       .then(usersRaw => {
@@ -101,8 +101,6 @@ class MapPage extends Component {
       distance: selectedDistance
     });
 
-    console.log(selectedDistance);
-
     this.state.usersAll.map(user =>
       locationA.distanceTo(new L.LatLng(user.location.lat, user.location.lng)) <
       selectedDistance
@@ -158,7 +156,6 @@ class MapPage extends Component {
   }
 
   render() {
-    console.log(this.state.inRangeUser);
     const idState = this.state.idState;
     return (
       <Row>

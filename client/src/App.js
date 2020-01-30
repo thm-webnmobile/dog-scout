@@ -55,12 +55,6 @@ class App extends Component {
               <PrivateRoute exact path="/home" component={Home} />
               <PrivateRoute exact path="/profilseite" component={Profilseite} />
             </Switch>
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
           </div>
         </Router>
       </Provider>

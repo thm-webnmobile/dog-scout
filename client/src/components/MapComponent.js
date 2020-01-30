@@ -91,7 +91,10 @@ class MapComponent extends Component {
         {/* Marker der anderen User */
         this.props.haveUsersLocation
           ? this.props.usersInRange.map(user => (
-              <Marker position={[user.location.lat, user.location.lng]}>
+              <Marker
+                position={[user.location.lat, user.location.lng]}
+                key={user._id}
+              >
                 <Popup>
                   <UserPopUp userCurrent={user} />
                 </Popup>
