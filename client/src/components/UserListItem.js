@@ -38,7 +38,7 @@ class UserListItem extends Component {
           <Col xs={9}>
             <h5>{this.props.name}</h5>
             <Image src="icons/location.png" />
-            <span>{this.props.wohnort}</span>
+            <span className="ort">{this.props.wohnort}</span>
           </Col>
         </Row>
       </ListGroupItem>

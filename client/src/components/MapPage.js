@@ -158,7 +158,7 @@ class MapPage extends Component {
   render() {
     const idState = this.state.idState;
     return (
-      <Row>
+      <Row className="row">
         <Col xs={3} className="users-list">
           <Form id="formLocation" onSubmit={this.handleSubmit}>
             <FormGroup id="inputLocation">

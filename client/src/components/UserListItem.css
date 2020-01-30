@@ -1,3 +1,31 @@
 .user-list-item:hover {
   cursor: pointer;
 }
+
+h5 {
+  font-size: 1.2rem;
+}
+
+.ort {
+  font-size: 0.9rem;
+}
+
+.profile-pic {
+  max-width: 110%;
+  height: auto;
+}
+
+.person-wrapper {
+  padding-right: 0;
+}
+
+/* Small devices (phones in landscape and portrait, 768px and down) */
+@media only screen and (max-width: 1200px) {
+  h5 {
+    font-size: 0.9rem;
+  }
+
+  .ort {
+    font-size: 0.7rem;
+  }
+}

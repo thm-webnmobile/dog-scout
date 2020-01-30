@@ -7,7 +7,7 @@
 }
 
 #btnLocation {
-  margin: 0 0 0 5px;
+  margin: 0 0 5px 5px;
   display: inline-block;
 }
 
@@ -24,4 +24,16 @@
 #inputDistance {
   width: 130px;
   display: block;
+}
+
+/* Small devices (phones in landscape and portrait, 768px and down) */
+@media only screen and (max-width: 768px) {
+  #formLocation,
+  .users-list {
+    display: none;
+  }
+
+  .row {
+    margin: 0;
+  }
 }
