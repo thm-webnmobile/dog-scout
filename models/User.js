@@ -28,6 +28,9 @@ const UserSchema = new Schema({
   },
   location: {
     type: Object
+  },
+  ist: {
+    type: String
   }
 });
 

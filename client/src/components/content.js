@@ -12,6 +12,10 @@ import { connect } from "react-redux";
 import { logoutUser } from "../actions/authActions";
 
 class Content extends Component {
+  handleChange = () => {
+    console.log("checked");
+  };
+
   render() {
     const { user } = this.props.auth; //!!!
     return (
@@ -29,18 +33,34 @@ class Content extends Component {
               <Form className="border border-secondary Formular rounded-sm">
                 <h2 className="centered">Ich suche...</h2>
                 <br />
-                <Form.Check
-                  type="radio"
-                  name="Suche"
-                  id="Hundebesitzer"
-                  label="... Hundebesitzer"
-                />
-                <Form.Check
-                  type="radio"
-                  name="Suche"
-                  id="Gassigeher"
-                  label="... Gassigeher"
-                />
+                <Link
+                  to={{
+                    pathname: "/map",
+                    state: "hundebesitzer"
+                  }}
+                >
+                  <Form.Check
+                    type="radio"
+                    name="Suche"
+                    id="Hundebesitzer"
+                    label="... Hundebesitzer"
+                    onChange={this.handleChange}
+                  />
+                </Link>
+
+                <Link
+                  to={{
+                    pathname: "/map",
+                    state: "gassigeher"
+                  }}
+                >
+                  <Form.Check
+                    type="radio"
+                    name="Suche"
+                    id="Gassigeher"
+                    label="... Gassigeher"
+                  />
+                </Link>
                 <br />
                 <Button
                   className="button-style"

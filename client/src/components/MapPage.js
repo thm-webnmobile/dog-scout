@@ -34,7 +34,10 @@ class MapPage extends Component {
         // Show only "i" amount of users (disregards users that register)
         let filteredUsers = [];
         for (let i = 0; i < usersRaw.length; i++) {
-          if (i <= 18) {
+          if (
+            typeof usersRaw[i].ist !== "undefined" &&
+            usersRaw[i].ist.localeCompare(this.props.location.state) == 0
+          ) {
             filteredUsers.push(usersRaw[i]);
           }
         }
@@ -48,7 +51,10 @@ class MapPage extends Component {
         // Show only "i" amount of users (disregards users that register)
         let filteredUsers = [];
         for (let i = 0; i < usersRaw.length; i++) {
-          if (i <= 18) {
+          if (
+            typeof usersRaw[i].ist !== "undefined" &&
+            usersRaw[i].ist.localeCompare(this.props.location.state) == 0
+          ) {
             filteredUsers.push(usersRaw[i]);
           }
         }
