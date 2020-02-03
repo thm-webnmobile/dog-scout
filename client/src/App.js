@@ -1,4 +1,4 @@
-import React, { Component, Profiler } from "react";
+import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navigation from "./components/Navigation";
 import Landing from "./components/landing";
@@ -6,11 +6,9 @@ import Content from "./components/content";
 import Register from "./components/Auth/Register";
 import Login from "./components/Auth/Login";
 import Profilseite from "./components/profilseite";
-import LoggedIn from "./components/LoggedIn";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Home from "./components/home";
-import { Alert } from "react-bootstrap";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/sethAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";

@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import LoggedIn from "./LoggedIn";
-import Register from "./Auth/Register";
-import Login from "./Auth/Login";
+import { BrowserRouter as Router} from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import "../App.css";
 import "whatwg-fetch";

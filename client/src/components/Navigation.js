@@ -1,23 +1,16 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../App.css";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import logo from "./Hunde-Icon.png";
 import profilbild from "./profilbild-beispiel.jpg";
-import Profilseite from "./profilseite.js";
 
 import {
   Navbar,
   Nav,
-  Form,
-  FormControl,
-  ReactBootstrapStyle,
   Button
 } from "react-bootstrap";
-import Content from "./content";
-import Landing from "./landing";
-import LoggedIn from "./LoggedIn";
-import Home from "./home";
+
 
 import { logoutUser } from "../actions/authActions";
 import PropTypes from "prop-types";

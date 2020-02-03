@@ -1,8 +1,8 @@
-import React, { Component, Profiler } from 'react';
+import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navigation from './Navigation';
 import Content from "./content";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 
 class Home extends Component{

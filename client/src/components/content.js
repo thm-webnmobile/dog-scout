@@ -4,12 +4,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "react-bootstrap/Form";
 import "../App.css";
 import Button from "react-bootstrap/Button";
-import Navigation from "./Navigation";
-import Profilseite from "./profilseite";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { logoutUser } from "../actions/authActions";
+import { registerUser } from "../actions/authActions";
+import Jumbotron from "react-bootstrap/Jumbotron";
+import Container from "react-bootstrap/Container";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+import ToggleButton from "react-bootstrap/ToggleButton";
 
 class Content extends Component {
   render() {
@@ -20,16 +22,17 @@ class Content extends Component {
           <div className="Suche">
             <br />
 
-            <h1 className="space">
-              Willkommen, <b>{user.name.split(" ")[0]}!</b>
-            </h1>
+            <Jumbotron className="Hintergrund">
+              <h1 className="space">
+                Willkommen, <b>{user.name.split(" ")[0]}!</b>
+              </h1>
+            </Jumbotron>
 
             <br />
-            <div className="centered">
+            <Container className="centered">
               <Form className="border border-secondary Formular rounded-sm">
                 <h2 className="centered">Ich suche...</h2>
                 <br />
-
                 <Link
                   to={{
                     pathname: "/map",
@@ -50,7 +53,7 @@ class Content extends Component {
                 </Link>
                 <br />
               </Form>
-            </div>
+            </Container>
           </div>
           <br />
           <br />
@@ -70,7 +73,7 @@ class Content extends Component {
 }
 
 Content.propTypes = {
-  logoutUser: PropTypes.func.isRequired,
+  registerUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
 
@@ -78,4 +81,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { logoutUser })(Content);
+export default connect(mapStateToProps, { registerUser })(Content);

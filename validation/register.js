@@ -14,7 +14,7 @@ module.exports = function validateRegisterInput(data) {
     data.password2 = !isEmpty(data.password2) ? data.password2 : "";
 
     if (Validator.isEmpty(data.name)) {
-        errors.name = "Name ist ein Pflichtfeld!";
+        errors.name = "Name ist ein Pflichtfeld!"; // macht gerade nichts.. (Siehe routes/api/users.js)
         nameistleer = true;
     }
 
