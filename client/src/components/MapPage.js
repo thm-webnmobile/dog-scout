@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Row, Col, Image } from "react-bootstrap";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Button, Form, FormGroup, Input } from "reactstrap";
 import axios from "axios";
 import UsersList from "./UsersList";
 import MapComponent from "./MapComponent";
@@ -36,7 +36,7 @@ class MapPage extends Component {
         for (let i = 0; i < usersRaw.length; i++) {
           if (
             typeof usersRaw[i].ist !== "undefined" &&
-            usersRaw[i].ist.localeCompare(this.props.location.state) == 0
+            usersRaw[i].ist.localeCompare(this.props.location.state) === 0
           ) {
             filteredUsers.push(usersRaw[i]);
           }
@@ -53,7 +53,7 @@ class MapPage extends Component {
         for (let i = 0; i < usersRaw.length; i++) {
           if (
             typeof usersRaw[i].ist !== "undefined" &&
-            usersRaw[i].ist.localeCompare(this.props.location.state) == 0
+            usersRaw[i].ist.localeCompare(this.props.location.state) === 0
           ) {
             filteredUsers.push(usersRaw[i]);
           }

@@ -46,8 +46,8 @@ class MapComponent extends Component {
 
   componentDidUpdate() {
     if (
-      this.state.idOfClickedUser == undefined ||
-      this.props._id != this.state.idOfClickedUser
+      this.state.idOfClickedUser === undefined ||
+      this.props._id !== this.state.idOfClickedUser
     ) {
       this.setState({
         idOfClickedUser: this.props._id
@@ -58,7 +58,7 @@ class MapComponent extends Component {
 
   getClickedUser() {
     const clickedUser = this.props.usersInRange.filter(
-      user => user._id == this.state.idOfClickedUser
+      user => user._id === this.state.idOfClickedUser
     );
     return clickedUser[0];
   }

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { ListGroup } from "reactstrap";
 import "./UsersList.css";
 import UserListItem from "./UserListItem";
-import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 class UsersList extends Component {
