@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
-import { Button, Alert } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import 'whatwg-fetch';
 
 import axios from 'axios';
@@ -40,6 +40,7 @@ class Register extends Component {
         this.setState({ [e.target.id]: e.target.value });
     };
 
+    // Neuer User:
     onSubmit = e => {
         e.preventDefault();
         const newUser = {

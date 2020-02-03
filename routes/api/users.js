@@ -4,8 +4,6 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
 
-const passport = require("passport");
-
 
 
 // Load input validation
@@ -83,6 +81,10 @@ router.post("/register", (req, res) => {
         }
     });
 });
+
+
+
+
 
 router.post("/login", (req, res, response) => {
 
