@@ -113,7 +113,7 @@ class MapComponent extends Component {
         ) : (
           ""
         )}
-        )}
+        )
       </Map>
     );
   }

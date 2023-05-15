@@ -13,8 +13,14 @@ let User = require("../models/user.model");
 // @route   GET /users
 // @desc    Get All Users
 // @access  Public
-app.get("/", (req, res) => {
-  res.json(users);
+app.get("/", async (request, response) => {
+  response.json(users);
+
+  try {
+    response.send(users);
+  } catch (error) {
+    response.status(500).send(error);
+  }
 
   /* User.find()
     .then(users => res.json(users))

@@ -11,7 +11,7 @@ const myurl = 'mongodb://localhost:27017';
 // mongoose.startSession('useCreateIndex', true); //wegen DeprecationWarning -> aber kam FM
 const bodyParser = require("body-parser");
 const app = express();
-const cors = require("cors"); //?
+const cors = require("cors"); 
 const passport = require("passport");
 const users = require("./routes/api/users");
 const usersForMap = require("./routes/api/usersForMap");
@@ -21,7 +21,7 @@ const usersTestRoute = require("./routes/usersTest"); //nhi: nur vorübergehend 
 mongoose.Promise = global.Promise;
 
 
-app.use(cors()); //??
+app.use(cors()); 
 
 //Bodyparser Middleware
 app.use(
@@ -50,9 +50,6 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage })
 
 
-
-
-
 // DB Config
 const db = require("./config/keys").mongoURI;
 
@@ -66,7 +63,7 @@ mongoose
     useUnifiedTopology: true
   })
   .then(() => console.log("MongoDB connected!"))
-  .catch(err => consolee.log(err));
+  .catch(err => console.log(err));
 
   /*var cursor= db.users.find() //collection=?
   var objectId= cursor.next()._id
@@ -87,8 +84,6 @@ mongoose
  //app.use("/uploads", expresss.static("uploads"));
 
 
-
-
 //Passport middleware
 app.use(passport.initialize());
 
@@ -99,7 +94,7 @@ app.use("/users", usersTestRoute); //nhi: nur vorübergehend zu Testzwecken!
 app.use("/api/users", users);
 app.use("/api/usersForMap", usersForMap);
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 
 
 //!!!
