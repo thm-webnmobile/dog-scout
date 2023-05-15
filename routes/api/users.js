@@ -25,10 +25,6 @@ router.post("/register", (req, res) => {
     pwgleich
   } = validateRegisterInput(req.body);
 
-  //if (!isValid) {
-  //    return res.status(400).json({ success: false, errors });
-  //}
-
   if (nameistleer) {
     return res
       .status(400)

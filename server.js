@@ -8,7 +8,6 @@ var Schema = mongoose.Schema;
 const MongoClient = require('mongodb').MongoClient 
 const myurl = 'mongodb://localhost:27017';
 
-// mongoose.startSession('useCreateIndex', true); //wegen DeprecationWarning -> aber kam FM
 const bodyParser = require("body-parser");
 const app = express();
 const cors = require("cors"); 
@@ -64,24 +63,6 @@ mongoose
   })
   .then(() => console.log("MongoDB connected!"))
   .catch(err => console.log(err));
-
-  /*var cursor= db.users.find() //collection=?
-  var objectId= cursor.next()._id
-  console.log("ID:"+objectId)*/
-
-
-  /*MongoClient.connect(myurl, (err, client) => {
-    if (err) return console.log(err)
-    db = client.db('test') 
-    app.listen(5000, () => {
-      console.log('listening on 5000')
-    })
-  })*/
-
-
-
-//File-Upload: Pfadreferenz:
- //app.use("/uploads", expresss.static("uploads"));
 
 
 //Passport middleware
